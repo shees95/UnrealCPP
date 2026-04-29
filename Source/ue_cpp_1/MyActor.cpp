@@ -37,6 +37,7 @@ void AMyActor::Tick(float DeltaTime)
 		{
 			GEngine->AddOnScreenDebugMessage(6, 5, FColor::Red, FString::Printf(TEXT("Index : %d"), index));
 		}
+		UE_LOG(LogTemp, Warning, TEXT("Index : %d"), index);
 	}
 	
 }
@@ -66,6 +67,9 @@ void AMyActor::Move()
 		GEngine->AddOnScreenDebugMessage(4, 5, FColor::Red, FString::Printf(TEXT("C_Loc : %d"), changed_Loc));
 		GEngine->AddOnScreenDebugMessage(3, 5, FColor::Red, FString::Printf(TEXT("Moved_Length : %f"), Moved_Length));
 	}
+	UE_LOG(LogTemp, Warning, TEXT("CurrentLocation : %s"), *CurrentLocation.ToString());
+	UE_LOG(LogTemp, Warning, TEXT("changed_Loc : %d"), changed_Loc);
+	UE_LOG(LogTemp, Warning, TEXT("Moved_Length : %f"), Moved_Length);
 }
 
 void AMyActor::Turn()
@@ -87,6 +91,8 @@ void AMyActor::Turn()
 		GEngine->AddOnScreenDebugMessage(2, 5, FColor::Red, *DeltaRotation.ToString());
 		GEngine->AddOnScreenDebugMessage(1, 5, FColor::Red, FString::Printf(TEXT("C_Rot : %d"), changed_Rot));
 	}
+	UE_LOG(LogTemp, Warning, TEXT("DeltaRotation : %s"), *DeltaRotation.ToString());
+	UE_LOG(LogTemp, Warning, TEXT("changed_Rot : %d"), changed_Rot);
 }
 
 bool AMyActor::TriggerEvent()
